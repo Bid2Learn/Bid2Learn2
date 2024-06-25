@@ -1,23 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { LoginPage } from './LoginPage';
+import { Login, User } from './User';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export class App extends Component<{}, {}> {
+  constructor(props: {}) {
+    super(props)
+  }
+
+  render = (): JSX.Element => {
+    return (
+      <LoginPage
+        onLoginClick={this.doLoginClick}
+      />
+    )
+  }
+
+  doLoginClick = (user: User): void => {
+    console.log("Username: " + user.Login.username)
+    console.log("Password: " + user.Login.password)
+  }
 }
-
-export default App;
